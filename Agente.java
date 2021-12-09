@@ -20,11 +20,11 @@ public class Agente {
 
 	// Identificador ODBC de la base de datos
 
-	private static String url = "jdbc:mysql://localhost:3306/?user=root";
+	private static String url = "jdbc:mysql://172.20.48.70:3306/?user=BC01"
 
 	// Driven para conectar con bases de datos MySQL
 
-	private static String driver = "com.mysql.jdbc.Driver";
+	private static String driver = "com.mysql.jdbc.Driver";   // CAMBIAR
 
 	// Constructor
 
