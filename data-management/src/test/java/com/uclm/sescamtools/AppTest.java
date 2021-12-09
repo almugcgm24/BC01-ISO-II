@@ -1,6 +1,6 @@
-package com.uclm.sescamtools;
+//package com.uclm.sescamtools;
 
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
