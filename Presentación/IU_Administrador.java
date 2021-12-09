@@ -1,4 +1,4 @@
-package Presentación;
+package PresentaciÃ³n;
 
 public class IU_Administrador extends IU_Usuario {
 }

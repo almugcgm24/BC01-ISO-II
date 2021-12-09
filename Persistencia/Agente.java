@@ -1,5 +1,8 @@
 package Persistencia;
 
+import java.sql.Connection;
+import java.util.ArrayList;
+
 public class Agente {
 	private Object _agente;
 	private Agente _mInstancia;
@@ -35,7 +38,7 @@ public class Agente {
 		this._agente = aAgente;
 	}
 
-	public void getAgente() {
+	public Object getAgente() {
 		return this._agente;
 	}
 
