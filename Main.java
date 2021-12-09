@@ -26,38 +26,49 @@ public class Main {
 				}
 		try {
 		//Se establece la conexi�n con la base de datos
-		conexion=DriverManager.getConnection ("jdbc:mysql://localhost:3306/pacientes","root","carladavid"); 
+		conexion=DriverManager.getConnection ("jdbc:mysql://localhost:172.20.48.70:3306/pacientes","BC01","@ISoft2.2021#"); 
 		//consultas
 		sentencia = conexion.createStatement();
 		
-		System.out.println("Bienvenido al Centro de Salud Healthy");
+		System.out.println("Bienvenido al Programa de Gestión Hospitalaria");
 
 		boolean salir = false; // variable empleada para salir del programa
 		int elegir_menu; // esta variable determina que opcion del men� elegimos
 		do {
 			try {
-				System.out.println("Por favor, seleccione una opci�n:");
-				System.out.println("1.- Mostrar informaci�n m�dica de los pacientes del centro de salud.");
-				System.out.println("2.- Actualizar informaci�n m�dica de un paciente seleccionado del centro de salud.");
-				System.out.println("3.- Mostrar informaci�n de los traslados de pacientes a otros centros hospitalarios.");
-				System.out.println("4.- Registrar un traslado de un paciente a otro centro hospitalario.");
-				System.out.println("5.- Salir del programa.");
+				System.out.println("Por favor, seleccione una opcion:");
+				System.out.println("1.- Mostrar informacion sobre las personas de Castilla-La Mancha.");
+				System.out.println("2.- Actualizar listado de personas de CLM con su estado de salud.");
+				System.out.println("3.- Mostrar informacion sobre las Enfermedades de los pacientes.");
+				System.out.println("4.- Registrar informacion sobre las Enfermedades de los pacientes.");
+				System.out.println("5.- Mostrar informacion sobre las Medicinas de los pacientes.");
+				System.out.println("6.- Registrar informacion sobre las Medicinas de los pacientes.");
+				System.out.println("7.- Mostrar informacion sobre los Confinamientos de los pacientes.");
+				System.out.println("8.- Registrar informacion sobre los Confinamientos de los pacientes.");
+				System.out.println("9.- Gestionar las Vacunas de los pacientes.");
+				System.out.println("10.- Gestionar Campañas de Vacunación.");
+				System.out.println("11.- Gestionar Campañas Informativas Preventivas.");
+				System.out.println("12.- Gestionar Calendario de Vacunacion de un paciente.");
+				System.out.println("13.- Enviar SMS a paciente vulnerable.");
+				System.out.println("14.- Mostrar Estadísticas.");
+				System.out.println("15.- Salir del programa.");
 				elegir_menu = teclado.nextInt();
 				teclado.nextLine();
+				
 				switch (elegir_menu) { // elegir_menu determina el case que se ejecutar� seg�n la opci�n seleccionada
 				case 1:
-					mostrarInformacionPacientes();
+					mostrarInformacionPersonas();
 					break;
 				case 2: 
-					System.out.println(actualizarInformacionPaciente());
+					System.out.println(actualizarEstadoPersonas());
 					break;
 				case 3: 
-					mostrarTraslados();
+					mostrarEnfermedades();
 					break;
 				case 4: 
-					System.out.println(registrarTraslado());
+					System.out.println(registrarEnfermedades());
 					break;
-				case 5: // para salir del programa
+				case 15: // para salir del programa
 					salir = true; // salir se pone a true para poder salir del bucle do while y finalizar el
 									// programa
 					System.out.println("Muchas gracias por usar nuestro programa.");
@@ -65,7 +76,7 @@ public class Main {
 				}
 			} catch (InputMismatchException e) { // si el valor introducido en la selecci�n del men� no es un n�mero,
 													// saltar� este mensaje de error
-				System.out.println("Error, no se ha introducido un valor num�rico.");
+				System.out.println("Error, no se ha introducido un valor numerico.");
 				teclado.next();
 			}
 		} while (!salir); // para que cuando sea false se repita el bucle (por eso se niega la variable
