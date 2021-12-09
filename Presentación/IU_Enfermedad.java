@@ -1,4 +1,4 @@
-package PresentaciÃ³n;
+package Presentación;
 
 public class IU_Enfermedad extends IU_Medico {
 }
