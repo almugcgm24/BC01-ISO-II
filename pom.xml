@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.uclm</groupId>
 	<artifactId>b01</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -9,7 +8,7 @@
 	<packaging>jar</packaging>
 
 	<name>b01</name>
-
+	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
@@ -45,4 +44,89 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	<reporting> 
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-project-info-reports-plugin</artifactId> 
+				<version>2.7</version>
+			</plugin> 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<configuration>
+					<skipEmptyReport>false</skipEmptyReport> 
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId> 
+				<artifactId>jacoco-maven-plugin</artifactId> 
+				<reportSets>
+					<reportSet> 
+						<reports>
+							<report>report</report> 
+						</reports>
+					</reportSet> 
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId> 
+				<artifactId>jacoco-maven-plugin</artifactId> 
+				<version>0.8.2</version>
+				<executions>
+					<execution> 
+						<id>default-prepare-agent</id> 
+						<goals>
+							<goal>prepare-agent</goal> 
+						</goals>
+					</execution> 
+				<execution>
+					<id>default-prepare-agent-integration</id> 
+					<goals>
+						<goal>prepare-agent-integration</goal> 
+					</goals>
+				</execution> 
+				<execution>
+					<id>default-report</id> 
+					<goals>
+						<goal>report</goal> 
+					</goals>
+				</execution> 
+				<execution>
+					<id>default-report-integration</id> 
+					<goals>
+						<goal>report-integration</goal> 
+					</goals>
+				</execution> 
+				<execution>
+					<id>default-check</id>
+					<goals>
+						<goal>check</goal> 
+					</goals>
+					<configuration> 
+						<rules>
+							<!-- implementation is needed only for Maven 2 -->
+							<rule implementation="org.jacoco.maven.RuleConfiguration"> 
+								<element>BUNDLE</element>
+								<limits>
+									<!-- implementation is needed only for Maven 2 -->
+									<limit implementation="org.jacoco.report.check.Limit"> 
+										<counter>COMPLEXITY</counter> 
+										<value>COVEREDRATIO</value> 
+										<minimum>0.60</minimum>
+									</limit> 
+								</limits>
+							</rule> 
+						</rules>
+					</configuration> 
+				</execution>
+			</executions> 
+		</plugin>	
+	</plugins>
+</reporting>
+	
+
+
+
 </project>
