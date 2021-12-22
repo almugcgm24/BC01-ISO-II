@@ -1,4 +1,4 @@
-package PresentaciÃ³n;
+package Presentación;
 
 public class IU_Enfermero extends IU_Usuario {
 }
