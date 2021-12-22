@@ -7,9 +7,7 @@ public class Gestion_de_vacunacion {
 	private Vacuna[] _vacunas;
 	private String _fechas_dosis;
 	private int _cantidad;
-	/**
-	 * Fechas de vacunación según la vulnerabilidad de las personas.
-	 */
+	
 	private String _pautas_vulnerabilidad;
 	public Vector<Vacuna> _tiene = new Vector<Vacuna>();
 
