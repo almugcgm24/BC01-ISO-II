@@ -34,6 +34,11 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.21</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -74,7 +79,7 @@
 				<groupId>org.jacoco</groupId> 
 				<artifactId>jacoco-maven-plugin</artifactId> 
 				<version>0.8.2</version>
-				<executions>
+				<configuration>
 					<execution> 
 						<id>default-prepare-agent</id> 
 						<goals>
@@ -121,7 +126,7 @@
 						</rules>
 					</configuration> 
 				</execution>
-			</executions> 
+			</configuration> 
 		</plugin>	
 	</plugins>
 </reporting>
