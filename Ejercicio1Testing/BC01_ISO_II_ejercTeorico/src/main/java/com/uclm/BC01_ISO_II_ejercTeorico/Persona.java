@@ -1,12 +1,12 @@
-package com.uclm.BC01_ISO_II_ejercTeorico;
+package BC01_ISO_II_ejercTeorico.src.main.java.com.uclm.BC01_ISO_II_ejercTeorico;
 
-class Persona extends Application{ 
+public class Persona extends Application{ 
 	
-	static boolean sana;
-	static boolean sintomas;
-	static boolean contacto;
-	static boolean pasaporteCovid;
-	static boolean pasadoCovid;
+	public static boolean sana;
+	public static boolean sintomas;
+	public static boolean contacto;
+	public static boolean pasaporteCovid;
+	public static boolean pasadoCovid;
 
 	
 	public Persona(boolean sana, boolean sintomas, boolean contacto, boolean pasadoCovid, boolean pasaporteCovid) {

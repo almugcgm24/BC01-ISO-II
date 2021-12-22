@@ -1,11 +1,14 @@
-package com.uclm.BC01_ISO_II_ejercTeorico;
+package BC01_ISO_II_ejercTeorico.src.test.java.com.uclm.BC01_ISO_II_ejercTeorico;
 
 import static org.junit.Assert.*;
 
-import com.uclm.BC01_ISO_II_ejercTeorico.Application;
-import com.uclm.BC01_ISO_II_ejercTeorico.Persona;
 
 import org.junit.*;
+
+import BC01_ISO_II_ejercTeorico.src.main.java.com.uclm.BC01_ISO_II_ejercTeorico.*;
+import BC01_ISO_II_ejercTeorico.src.main.java.com.uclm.BC01_ISO_II_ejercTeorico.DatosException;
+import BC01_ISO_II_ejercTeorico.src.main.java.com.uclm.BC01_ISO_II_ejercTeorico.HumedadException;
+import BC01_ISO_II_ejercTeorico.src.main.java.com.uclm.BC01_ISO_II_ejercTeorico.NoHayAforoException;
 
 public class AppTest1 {
 

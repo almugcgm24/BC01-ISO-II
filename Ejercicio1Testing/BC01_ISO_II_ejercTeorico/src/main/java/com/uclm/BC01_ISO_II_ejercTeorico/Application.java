@@ -1,18 +1,18 @@
-package com.uclm.BC01_ISO_II_ejercTeorico;
+package BC01_ISO_II_ejercTeorico.src.main.java.com.uclm.BC01_ISO_II_ejercTeorico;
 import java.util.Scanner;
 public class Application{
 	
 	final static Scanner teclado = new Scanner (System.in);
 	
-	static boolean covid; 
-	static String actividad;
-	static int temperatura = 0;
-	static int humedad = 0;
-	static boolean precipitaciones = true;
-	static boolean nublado = true;
-	static boolean confinamiento = true;
-	static int aforo = 0;
-	static Persona persona;
+	public static boolean covid; 
+	public static String actividad;
+	public static int temperatura = 0;
+	public static int humedad = 0;
+	public static boolean precipitaciones = true;
+	public static boolean nublado = true;
+	public static boolean confinamiento = true;
+	public static int aforo = 0;
+	public static Persona persona;
 	
 	//static boolean sana = false, sintomas = false, contacto = false, pasaporteCovid = false, pasadoCovid = false;
 

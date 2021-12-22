@@ -43,19 +43,21 @@ public class Ejercicio_3 {
                         case 1:
                             System.out.println("Rellene los siguientes datos: ");
                             int afg = adecuacion_menu();
-                            System.out.println("La adecuacion funcional es de: "+afg);
                             int mang = mantenibilidad_menu();
-                            System.out.println("La manteabilidad funcional es de: "+mang);
+                   
                             System.out.println("\nAdecuación Funcional: " + afg);
+                            
                             System.out.println("\nMantenibilidad: " + mang);
                             System.out.println("\nCalculado calidad global...\n");
                             int cfg = calcular_cg(mang, afg, calidad_global);
                             System.out.println("Calidad Global: " + cfg);
+                            afg = adecuacion_menu1();
+                            mang = mantenibilidad_menu1();
                             if (cfg >= 3)
                                 certificable = true;
                             if (certificable) {
                                 System.out.println("\nSe puede certificar el Producto Software\n");
-
+                            
                             } else {
                                 System.out.println(
                                         "\nMe temo que el producto no cumple con los requerimientos para ser certificado...\n");
@@ -83,7 +85,40 @@ public class Ejercicio_3 {
     	
     	
     }
-    public static int adecuacion_menu() {
+    private static int adecuacion_menu1(){
+    	System.out.println("VERSION 1 DE ADECUACION");
+    	System.out.println("Inserte la completitud funcional");
+        completitud = insertarNumero();
+        System.out.println("Inserte la corrección funcional");
+         correcion = insertarNumero();
+        System.out.println("Inserte la pertinencia funcional");
+         pertinencia = insertarNumero();
+
+         af = calcular_af(completitud, correcion, pertinencia, adecuacion_funcional);
+	        System.out.println("La adecuacion v1 es de: "+af);
+
+         return af;
+	
+	}
+	private static int mantenibilidad_menu1() {
+		System.out.println("VERSION 1 DE MANTENIBILIDAD");
+		  System.out.println("Inserte la modularidad");
+	         modulo = insertarNumero();
+	        System.out.println("Inserte la reusabilidad");
+	         reusable = insertarNumero();
+	        System.out.println("Inserte la analizabilidad");
+	         analiza = insertarNumero();
+	        System.out.println("Inserte la capacidad para de ser modificado");
+	         cm = insertarNumero();
+	        System.out.println("Inserte la capacidad para de ser probado");
+	         cp = insertarNumero();
+
+	         min = manteabilidad(modulo, reusable, analiza, cm, cp, mantenibilidad);
+	        System.out.println("La manteabilidad v1 es de: "+min);
+	         return min;
+		
+	}
+	public static int adecuacion_menu() {
 
         System.out.println("Inserte la completitud funcional");
         completitud = insertarNumero();
@@ -93,7 +128,9 @@ public class Ejercicio_3 {
          pertinencia = insertarNumero();
 
          af = calcular_af(completitud, correcion, pertinencia, adecuacion_funcional);
-        return af;
+	        System.out.println("La adecuacion es de: "+af);
+
+         return af;
             
     }
 
@@ -110,7 +147,9 @@ public class Ejercicio_3 {
          cp = insertarNumero();
 
          min = manteabilidad(modulo, reusable, analiza, cm, cp, mantenibilidad);
-        return min;
+	      System.out.println("La manteabilidad es de: "+min);
+
+         return min;
 
     }
 
@@ -149,6 +188,7 @@ public class Ejercicio_3 {
     public static int rango_mediciones(int rango) {
         rang=rango;
         int fila = 0;
+        System.out.println("Valor de rang: "+Ejercicio_3.rang);
         if (rang >= 0 && rang < 10) {
             fila = 0;
         }

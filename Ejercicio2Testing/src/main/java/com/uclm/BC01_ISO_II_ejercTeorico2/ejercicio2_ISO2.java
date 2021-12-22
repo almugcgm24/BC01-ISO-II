@@ -1,17 +1,17 @@
-package com.uclm.BC01_ISO_II_ejercTeorico2;
+package src.main.java.com.uclm.BC01_ISO_II_ejercTeorico2;
 import java.util.Scanner;
 
 public class ejercicio2_ISO2 {
-    static Double precio = 0.0;
-	static int edad = 0;
-	static int IA = 0;
-	static Double reduccion_plazas;
-	static int plazas = 0;
-	static int nivel;
-    static Boolean enferma = false, sintomas_covid = false, contacto = false, pasaporteCovid = false, profesion_impres = false;
-	static Double descuento = 0.0, incremento = 0.0;
-	static Double reserva_plazas = 0.0;
-    final static Scanner teclado=new Scanner(System.in);
+	public static Double precio = 0.0;
+	public static int edad = 0;
+	public static int IA = 0;
+	public static Double reduccion_plazas;
+	public static int plazas = 0;
+	public static int nivel;
+	public static Boolean enferma = false, sintomas_covid = false, contacto = false, pasaporteCovid = false, profesion_impres = false;
+	public static Double descuento = 0.0, incremento = 0.0;
+	public static Double reserva_plazas = 0.0;
+	public final static Scanner teclado=new Scanner(System.in);
 public static void main(String[] args){
 	String respuesta;
 	try{
