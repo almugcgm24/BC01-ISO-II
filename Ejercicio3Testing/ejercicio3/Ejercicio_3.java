@@ -79,7 +79,7 @@ public class Ejercicio_3 {
          correcion = insertarNumero();
         System.out.println("Inserte la pertinencia funcional");
          pertinencia = insertarNumero();
-
+        
          af = calcular_af(completitud, correcion, pertinencia, adecuacion_funcional);
         return af;
 
