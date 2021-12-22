@@ -61,7 +61,7 @@ public static void main(String[] args){
 public static double calcularPrecio() throws NoHayPlazasException {
 	if(IA < 100){
 		nivel = 0;
-		reduccion_plazas = 1.0;
+		reduccion_plazas = 0.0;
 	} else if(100<=IA && IA<=200){
 		nivel = 1;
 		reduccion_plazas = 0.8;
