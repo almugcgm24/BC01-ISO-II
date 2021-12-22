@@ -78,11 +78,10 @@ public class Ejercicio_3Test {
         Ejercicio_3.cm = 22;
         System.out.println("Inserte la capacidad para de ser probado");
         Ejercicio_3.cp = 45;
-        */
+       */
         assertEquals(1,Ejercicio_3.mantenibilidad_menu());
     }
-
-   
+  
     @Test
     public void rango_mediciones() {
         assertTrue(Ejercicio_3.rang >= 0 && Ejercicio_3.rang < 10);
