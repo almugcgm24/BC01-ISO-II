@@ -9,18 +9,26 @@ public class Ejercicio_3 {
             { 3, 3, 3, 4, 4 }, { 4, 5, 5, 5, 4 } };
      static int calidad_global[][] = { { 1, 1, 1, 1, 1 }, { 1, 2, 2, 2, 2 }, { 2, 2, 3, 3, 3 }, { 3, 3, 3, 3, 4 },
             { 3, 3, 4, 4, 5 } };
-     static int rang;
-     static int completitud;
-    static int  correcion;
-    static int pertinencia;
-    static int modulo;
-    static int reusable;
-    static int analiza;
-    static int cm;
-    static int cp;
-    static int af;
-    static int min;
+     public static int rang;
+     public static int completitud;
+    public static int  correcion;
+    public static int pertinencia;
+    public static int modulo;
+    public static int reusable;
+    public static int analiza;
+    public static int cm;
+    public static int cp;
+    public static int af;
+    public static int min;
+ 
     public static void main(String[] args) throws Exception {
+    	principal();
+
+    }
+    public static boolean principal() {
+    	boolean a=true;
+    	
+    	
         boolean salir = false;
 
 
@@ -64,13 +72,17 @@ public class Ejercicio_3 {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("\nIntroduzca Unicamente números\n");
+                a=false;
                 tc.next();
             }
 
         } while (!salir);
 
+    	
+		return a;
+    	
+    	
     }
-
     public static int adecuacion_menu() {
 
         System.out.println("Inserte la completitud funcional");
@@ -79,10 +91,10 @@ public class Ejercicio_3 {
          correcion = insertarNumero();
         System.out.println("Inserte la pertinencia funcional");
          pertinencia = insertarNumero();
-        
+
          af = calcular_af(completitud, correcion, pertinencia, adecuacion_funcional);
         return af;
-
+            
     }
 
     public static int mantenibilidad_menu() {

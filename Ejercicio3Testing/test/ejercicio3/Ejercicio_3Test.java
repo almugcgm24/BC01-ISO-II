@@ -1,9 +1,11 @@
-package ejercicio3;
+package test.ejercicio3;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import ejercicio3.Ejercicio_3;
+import test.ejercicio3.*;
 import static org.junit.Assert.*;
 
 public class Ejercicio_3Test {
@@ -18,10 +20,12 @@ public class Ejercicio_3Test {
         System.out.println("Hey!");
     }
 
+    
     @Test
-    public void main() {
-        System.out.println("Rellene los siguientes datos: ");
+    public void principal() {
+    	assertEquals(true,Ejercicio_3.principal());
     }
+
 
     @Test
     public void adecuacion_menu() {
@@ -31,7 +35,7 @@ public class Ejercicio_3Test {
         Ejercicio_3.correcion = 34;
         System.out.println("Inserte la pertinencia funcional");
         Ejercicio_3.pertinencia = 85;
-        assertEquals(1,Ejercicio_3.af);
+        assertEquals(1,Ejercicio_3.adecuacion_menu());
 
     }
 
@@ -47,7 +51,7 @@ public class Ejercicio_3Test {
         Ejercicio_3.cm = 90;
         System.out.println("Inserte la capacidad para de ser probado");
         Ejercicio_3.cp = 23;
-        assertEquals(0,Ejercicio_3.min);
+        assertEquals(0,Ejercicio_3.mantenibilidad_menu());
     }
 
     @Test
@@ -79,7 +83,7 @@ public class Ejercicio_3Test {
 
     @Test
     public void manteabilidad() {
-
+    	
     }
 
     @Test
