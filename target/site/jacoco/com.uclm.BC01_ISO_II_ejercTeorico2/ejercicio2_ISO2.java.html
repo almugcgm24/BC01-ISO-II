@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ejercicio2_ISO2.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">BC01_ISO_II_ejercTeorico2</a> &gt; <a href="index.source.html" class="el_package">com.uclm.BC01_ISO_II_ejercTeorico2</a> &gt; <span class="el_source">ejercicio2_ISO2.java</span></div><h1>ejercicio2_ISO2.java</h1><pre class="source lang-java linenums">package com.uclm.BC01_ISO_II_ejercTeorico2;
+import java.util.Scanner;
+
+<span class="nc" id="L4">public class ejercicio2_ISO2 {</span>
+<span class="fc" id="L5">    static Double precio = 0.0;</span>
+<span class="fc" id="L6">	static int edad = 0;</span>
+<span class="fc" id="L7">	static int IA = 0;</span>
+	static Double reduccion_plazas;
+	static int plazas;
+	static int nivel;
+<span class="fc" id="L11">    static Boolean enferma = false, sintomas_covid = false, contacto = false, pasaporteCovid = false, profesion_impres = false;</span>
+<span class="fc" id="L12">	static Double descuento = 0.0, incremento = 0.0;</span>
+<span class="fc" id="L13">	static Double reserva_plazas = 0.0;</span>
+<span class="fc" id="L14">    final static Scanner teclado=new Scanner(System.in);</span>
+public static void main(String[] args){
+
+<span class="nc" id="L17">	principal();</span>
+<span class="nc" id="L18">}</span>
+
+
+public static boolean principal() {
+	
+<span class="nc" id="L23">	boolean a = true;</span>
+	String respuesta;
+	try{
+
+	try{
+<span class="nc" id="L28">	System.out.println(&quot;Por favor, introduzca el precio normal del billete: &quot;);</span>
+<span class="nc" id="L29">	precio = obtenerDoublePositivo();</span>
+<span class="nc" id="L30">	System.out.println(&quot;Por favor, introduzca la edad: &quot;);</span>
+	try{
+<span class="nc" id="L32">	edad = obtenerEdad();</span>
+<span class="nc" id="L33">	}catch(EdadException d){</span>
+<span class="nc" id="L34">		respuesta=d.getMessage();</span>
+<span class="nc" id="L35">		System.out.println(respuesta);</span>
+<span class="nc" id="L36">		a = false;</span>
+<span class="nc" id="L37">		System.exit(0);</span>
+	}
+	
+<span class="nc" id="L40">	System.out.println(&quot;Por favor, introduzca la IA de la comunidad: &quot;);</span>
+<span class="nc" id="L41">	IA = obtenerPositivo();</span>
+<span class="nc" id="L42">	System.out.println(&quot;Por favor, introduzca el numero de plazas que existen: &quot;);</span>
+<span class="nc" id="L43">	plazas = obtenerPositivo();</span>
+<span class="nc" id="L44">	}catch(NegativoException n){</span>
+<span class="nc" id="L45">		respuesta=n.getMessage();</span>
+<span class="nc" id="L46">		System.out.println(respuesta);</span>
+<span class="nc" id="L47">		a = false;</span>
+<span class="nc" id="L48">		System.exit(0);</span>
+	}
+
+<span class="nc" id="L51">	System.out.println(&quot;Por favor, introduzca si la persona se encuentra enferma (true/false): &quot;);</span>
+<span class="nc" id="L52">	enferma = teclado.nextBoolean();</span>
+<span class="nc" id="L53">	System.out.println(&quot;Por favor, introduzca si la persona posee síntomas de covid (true/false): &quot;);</span>
+<span class="nc" id="L54">	sintomas_covid = teclado.nextBoolean();</span>
+<span class="nc" id="L55">	System.out.println(&quot;Por favor, introduzca si la persona ha tenido contacto con un positivo (true/false): &quot;);</span>
+<span class="nc" id="L56">	contacto = teclado.nextBoolean();</span>
+<span class="nc" id="L57">	System.out.println(&quot;Por favor, introduzca si la persona posee pasaporte Covid (true/false): &quot;);</span>
+<span class="nc" id="L58">	pasaporteCovid = teclado.nextBoolean();</span>
+<span class="nc" id="L59">	System.out.println(&quot;Por favor, introduzca si la persona ocupa una profesión imprescindible (true/false): &quot;);</span>
+<span class="nc" id="L60">	profesion_impres = teclado.nextBoolean();</span>
+	
+<span class="nc" id="L62">	precio = calcularPrecio();</span>
+<span class="nc" id="L63">	System.out.println(&quot;El precio del billete es: &quot; + precio + &quot; euros.&quot;);</span>
+<span class="nc" id="L64">	} catch(NoHayPlazasException ex){</span>
+<span class="nc" id="L65">		respuesta=ex.getMessage();</span>
+<span class="nc" id="L66">		System.out.println(respuesta);</span>
+<span class="nc" id="L67">		a = false;</span>
+<span class="nc" id="L68">		System.exit(0);</span>
+	}
+	
+<span class="nc" id="L71">	return a;</span>
+}
+public static double calcularPrecio() throws NoHayPlazasException {
+<span class="fc bfc" id="L74" title="All 2 branches covered.">	if(IA &lt; 100){</span>
+<span class="fc" id="L75">		nivel = 0;</span>
+<span class="fc" id="L76">		reduccion_plazas = 0.0;</span>
+<span class="pc bpc" id="L77" title="1 of 4 branches missed.">	} else if(100&lt;=IA &amp;&amp; IA&lt;=200){</span>
+<span class="fc" id="L78">		nivel = 1;</span>
+<span class="fc" id="L79">		reduccion_plazas = 0.8;</span>
+<span class="pc bpc" id="L80" title="1 of 4 branches missed.">	} else if(200&lt;IA &amp;&amp; IA&lt;=300){</span>
+<span class="fc" id="L81">		nivel = 2;</span>
+<span class="fc" id="L82">		reduccion_plazas = 0.6;</span>
+<span class="pc bpc" id="L83" title="1 of 4 branches missed.">	} else if(300&lt;IA &amp;&amp; IA&lt;=500){</span>
+<span class="fc" id="L84">		nivel = 3;</span>
+<span class="fc" id="L85">		reduccion_plazas = 0.4;</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">	} else if(500&lt;IA){</span>
+<span class="fc" id="L87">		nivel = 4;</span>
+<span class="fc" id="L88">		reduccion_plazas = 0.3;</span>
+	}
+<span class="fc" id="L90">		plazas = (int) (plazas - (plazas * reduccion_plazas));</span>
+<span class="pc bpc" id="L91" title="2 of 6 branches missed.">	if(enferma || contacto || sintomas_covid){</span>
+<span class="fc" id="L92">		precio = 0.0;</span>
+<span class="fc" id="L93">		System.out.println(&quot;Lo sentimos, no puede viajar.&quot;);</span>
+<span class="fc" id="L94">		return precio;</span>
+<span class="fc bfc" id="L95" title="All 4 branches covered.">	} else if(nivel == 0 &amp;&amp; edad &lt; 23){</span>
+<span class="fc" id="L96">		descuento = 0.6;</span>
+<span class="pc bpc" id="L97" title="1 of 4 branches missed.">	} else if(nivel == 0 &amp;&amp; edad &gt; 65){</span>
+<span class="fc" id="L98">		descuento = 0.8;</span>
+<span class="fc bfc" id="L99" title="All 4 branches covered.">	} else if(nivel == 1 &amp;&amp; edad &lt; 23){</span>
+<span class="fc" id="L100">		descuento = 0.3;</span>
+<span class="fc bfc" id="L101" title="All 4 branches covered.">	} else if(nivel == 1 &amp;&amp; edad &gt; 65){</span>
+<span class="fc" id="L102">		descuento = 0.5;</span>
+<span class="fc bfc" id="L103" title="All 4 branches covered.">	} else if(nivel == 2 &amp;&amp; edad &gt; 65){</span>
+<span class="fc" id="L104">		incremento = 0.2;</span>
+<span class="fc" id="L105">		plazas = (int) (plazas - (plazas * 0.6));</span>
+<span class="pc bpc" id="L106" title="1 of 8 branches missed.">	} else if(nivel == 2 &amp;&amp; 18&lt;= edad &amp;&amp; edad &lt;= 65 &amp;&amp; profesion_impres == true){</span>
+<span class="fc" id="L107">		plazas = (int) (plazas * 0.6);</span>
+<span class="pc bpc" id="L108" title="2 of 6 branches missed.">	} else if(nivel == 2 &amp;&amp; edad &lt;= 65 &amp;&amp; profesion_impres == false){</span>
+<span class="fc" id="L109">		plazas = (int) (plazas - (plazas * 0.6));</span>
+<span class="fc bfc" id="L110" title="All 6 branches covered.">	} else if(nivel == 3 &amp;&amp; edad &lt; 23 &amp;&amp; profesion_impres == false){</span>
+<span class="fc" id="L111">		incremento = 0.2;</span>
+<span class="fc" id="L112">		plazas = (int) (plazas - (plazas * 0.8));</span>
+<span class="pc bpc" id="L113" title="2 of 8 branches missed.">	} else if(nivel == 3 &amp;&amp; 18&lt;= edad &amp;&amp; edad &lt; 23 &amp;&amp; profesion_impres == true){</span>
+<span class="fc" id="L114">		incremento = 0.2;</span>
+<span class="fc" id="L115">		plazas = (int) (plazas * 0.8);</span>
+<span class="pc bpc" id="L116" title="1 of 8 branches missed.">	} else if(nivel == 3 &amp;&amp; 23&lt;= edad &amp;&amp; edad &lt;= 65 &amp;&amp; profesion_impres == true){</span>
+<span class="fc" id="L117">		plazas = (int) (plazas * 0.8);</span>
+<span class="pc bpc" id="L118" title="2 of 8 branches missed.">	} else if(nivel == 3 &amp;&amp; 23&lt;= edad &amp;&amp; edad &lt;= 65 &amp;&amp; profesion_impres == false){</span>
+<span class="fc" id="L119">		plazas = (int) (plazas - (plazas * 0.8));</span>
+<span class="pc bpc" id="L120" title="1 of 4 branches missed.">	} else if(nivel == 3 &amp;&amp; edad &gt; 65){</span>
+<span class="fc" id="L121">		incremento = 0.5;</span>
+<span class="fc" id="L122">		plazas = (int) (plazas - (plazas * 0.8));</span>
+<span class="fc bfc" id="L123" title="All 6 branches covered.">	} else if(nivel == 4 &amp;&amp; edad &lt; 23 &amp;&amp; profesion_impres == false){</span>
+<span class="fc" id="L124">		incremento = 0.5;</span>
+<span class="fc" id="L125">		plazas = (int) (plazas - (plazas * 0.9));</span>
+<span class="pc bpc" id="L126" title="2 of 8 branches missed.">	} else if(nivel == 4 &amp;&amp; 18&lt;= edad &amp;&amp; edad &lt; 23 &amp;&amp; profesion_impres == true){</span>
+<span class="fc" id="L127">		incremento = 0.5;</span>
+<span class="fc" id="L128">		plazas = (int) (plazas * 0.9);</span>
+<span class="pc bpc" id="L129" title="1 of 8 branches missed.">	} else if(nivel == 4 &amp;&amp; 23&lt;= edad &amp;&amp; edad &lt;= 65 &amp;&amp; profesion_impres == true){</span>
+<span class="fc" id="L130">		plazas = (int) (plazas * 0.9);</span>
+<span class="pc bpc" id="L131" title="2 of 8 branches missed.">	} else if(nivel == 4 &amp;&amp; 23&lt;= edad &amp;&amp; edad &lt;= 65 &amp;&amp; profesion_impres == false){</span>
+<span class="fc" id="L132">		plazas = (int) (plazas - (plazas * 0.9));</span>
+<span class="pc bpc" id="L133" title="1 of 4 branches missed.">	} else if(nivel == 4 &amp;&amp; edad &gt; 65){</span>
+<span class="fc" id="L134">		precio = 0.0;</span>
+<span class="fc" id="L135">		System.out.println(&quot;Lo sentimos, no puede viajar.&quot;);</span>
+<span class="fc" id="L136">		return precio;</span>
+	}
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">	if(plazas &lt;= 0){</span>
+<span class="nc" id="L139">		throw new NoHayPlazasException(&quot;Lo sentimos, no hay plazas suficientes.&quot;);</span>
+	}
+<span class="fc" id="L141">	precio = precio + (precio * incremento); //aplicamos incremento</span>
+<span class="fc" id="L142">	precio = precio - (precio * descuento); //aplicamos descuento</span>
+
+<span class="fc" id="L144">	return precio; </span>
+	}
+
+	public static int obtenerEdad() throws EdadException{
+<span class="nc" id="L148">		int mi_edad = 0;</span>
+<span class="nc" id="L149">		mi_edad = teclado.nextInt();</span>
+<span class="nc bnc" id="L150" title="All 4 branches missed.">		if(mi_edad &lt;= 0 || mi_edad &gt; 100){</span>
+<span class="nc" id="L151">			throw new EdadException(&quot;Error, ha introducido una edad inválida.&quot;);</span>
+		}
+
+<span class="nc" id="L154">		return mi_edad;</span>
+	}
+
+	public static int obtenerPositivo() throws NegativoException{
+<span class="nc" id="L158">		int numero = 0;</span>
+<span class="nc" id="L159">		numero = teclado.nextInt();</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">		if(numero &lt; 0){</span>
+<span class="nc" id="L161">			throw new NegativoException(&quot;Dato incorrecto, por favor, introduzca números positivos.&quot;);</span>
+		}
+
+<span class="nc" id="L164">		return numero;</span>
+	}
+
+	public static double obtenerDoublePositivo() throws NegativoException{
+<span class="nc" id="L168">		double numeroDouble = 0;</span>
+<span class="nc" id="L169">		numeroDouble = teclado.nextDouble();</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">		if(numeroDouble &lt; 0.0){</span>
+<span class="nc" id="L171">			throw new NegativoException(&quot;Dato incorrecto, por favor, introduzca números positivos.&quot;);</span>
+		}
+
+<span class="nc" id="L174">		return numeroDouble;</span>
+	}
+}  
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
