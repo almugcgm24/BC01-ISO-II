@@ -1,2 +1,2 @@
-## Descripcion del Programa
+## Ejercicio Teorico 2
 
