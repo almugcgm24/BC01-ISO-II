@@ -42,14 +42,14 @@ public class Ejercicio_3 {
                     switch (opcion) {
                         case 1:
                             System.out.println("Rellene los siguientes datos: ");
-                            int afg = adecuacion_menu();
+                             af = adecuacion_menu();
                             int mang = mantenibilidad_menu();
                    
-                            System.out.println("\nAdecuación Funcional: " + afg);
+                            System.out.println("\nAdecuación Funcional: " + af);
                             
                             System.out.println("\nMantenibilidad: " + mang);
                             System.out.println("\nCalculado calidad global...\n");
-                            int cfg = calcular_cg(mang, afg, calidad_global);
+                            int cfg = calcular_cg(mang, af, calidad_global);
                             System.out.println("Calidad Global: " + cfg);
                             if (cfg >= 3)
                                 certificable = true;
@@ -112,7 +112,7 @@ public class Ejercicio_3 {
         System.out.println("Inserte la capacidad para de ser probado");
          cp = insertarNumero();
 
-         min = manteabilidad(modulo, reusable, analiza, cm, cp, mantenibilidad);
+         min = mantenibilidad(modulo, reusable, analiza, cm, cp, mantenibilidad);
 	      System.out.println("La manteabilidad es de: "+min);
 
          return min;
@@ -181,7 +181,7 @@ public class Ejercicio_3 {
         return fila;
     }
 
-    public static int manteabilidad(int modularidad, int reusabilidad, int analizabilidad,
+    public static int mantenibilidad(int modularidad, int reusabilidad, int analizabilidad,
                                     int capacidad_de_ser_modificado, int capacidad_de_ser_probado, int manteabilidad[][]) {
         int mini = 0;
         int vector_manteabilidad[] = new int[5];

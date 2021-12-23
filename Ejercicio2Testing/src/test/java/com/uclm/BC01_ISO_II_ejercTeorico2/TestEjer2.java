@@ -1,4 +1,4 @@
-package com.uclm.BC01_ISO_II_ejercTeorico2;
+package src.test.java.com.uclm.BC01_ISO_II_ejercTeorico2;
 
 import static org.junit.Assert.*; 
 
